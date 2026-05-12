@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84299aed870eec345a2081835623de96, type: 3}
+  m_Name: Fruit_03_Grape
+  m_EditorClassIdentifier: Assembly-CSharp::SubakGame.Gameplay.FruitData
+  tier: 3
+  displayName: "\uD3EC\uB3C4"
+  scoreValue: 6
+  radius: 0.26136005
+  mass: 0.5227201
+  color: {r: 0.55, g: 0.3, b: 0.75, a: 1}
+  sprite: {fileID: 0}
+  nextTier: {fileID: 11400000, guid: b53af0d5aefde4640b44a76ceb8d341f, type: 2}
