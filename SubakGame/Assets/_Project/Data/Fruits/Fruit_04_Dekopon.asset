@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84299aed870eec345a2081835623de96, type: 3}
+  m_Name: Fruit_04_Dekopon
+  m_EditorClassIdentifier: Assembly-CSharp::SubakGame.Gameplay.FruitData
+  tier: 4
+  displayName: "\uD55C\uB77C\uBD09"
+  scoreValue: 10
+  radius: 0.34499526
+  mass: 0.6899905
+  color: {r: 1, g: 0.65, b: 0.1, a: 1}
+  sprite: {fileID: 0}
+  nextTier: {fileID: 11400000, guid: 16c2228ecb99e1942b131aa7a97f59e0, type: 2}
