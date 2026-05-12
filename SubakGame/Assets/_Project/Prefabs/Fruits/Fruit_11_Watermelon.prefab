@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2350637745503074950}
   - component: {fileID: 4822671493846409988}
   - component: {fileID: 5979695399455843419}
+  - component: {fileID: 7626498883537799818}
   m_Layer: 0
   m_Name: Fruit_11_Watermelon
   m_TagString: Untagged
@@ -170,3 +171,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SubakGame.Gameplay.Fruit
   data: {fileID: 11400000, guid: e08e9fbd9d5fbea47be19c31d0069267, type: 2}
+--- !u!114 &7626498883537799818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4554251252190223524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2d7962fd07ca4468e994b59d954a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SubakGame.Gameplay.EffectManager
+  database: {fileID: 11400000, guid: e07014f4e51945f4cb769cb2e802823d, type: 2}
+  mergeParticlePrefab: {fileID: 7241333234522901818, guid: 8e8b1a824d65fd04480ee683838bb7df, type: 3}

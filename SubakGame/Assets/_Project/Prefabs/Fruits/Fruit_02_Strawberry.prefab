@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4634924469463040393}
   - component: {fileID: 1080406401667048886}
   - component: {fileID: 4328914665387223793}
+  - component: {fileID: 349094737601448250}
   m_Layer: 0
   m_Name: Fruit_02_Strawberry
   m_TagString: Untagged
@@ -170,3 +171,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SubakGame.Gameplay.Fruit
   data: {fileID: 11400000, guid: 7e6ea9b9c509163499218275905ff34e, type: 2}
+--- !u!114 &349094737601448250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8112434061638900837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2d7962fd07ca4468e994b59d954a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SubakGame.Gameplay.EffectManager
+  database: {fileID: 11400000, guid: e07014f4e51945f4cb769cb2e802823d, type: 2}
+  mergeParticlePrefab: {fileID: 7241333234522901818, guid: 8e8b1a824d65fd04480ee683838bb7df, type: 3}
