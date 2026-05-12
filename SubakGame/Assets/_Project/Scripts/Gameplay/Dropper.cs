@@ -22,6 +22,8 @@ namespace SubakGame.Gameplay
         [Header("동작")]
         [SerializeField, Min(0f)] private float cooldown = 0.5f;
         [SerializeField, Range(0f, 1f)] private float previewAlpha = 0.7f;
+        [SerializeField, Range(0f, 1f), Tooltip("게임오버 시 적용할 시간 스케일 (0=정지)")]
+        private float gameOverTimeScale = 0.1f;
 
         private InputAction pointerAction;
         private InputAction dropAction;
@@ -31,6 +33,7 @@ namespace SubakGame.Gameplay
         private SpriteRenderer previewSR;
         private float unlockAt;
         private bool isLocked;
+        private bool isGameOver;
 
         private void Awake()
         {
@@ -39,6 +42,10 @@ namespace SubakGame.Gameplay
 
         private void OnEnable()
         {
+            // 게임오버 직후 종료된 이전 세션이 timeScale 을 남길 수 있으므로 리셋
+            Time.timeScale = 1f;
+            isGameOver = false;
+
             if (inputActions == null)
             {
                 Debug.LogError("[Dropper] InputActionAsset 미설정");
@@ -49,12 +56,21 @@ namespace SubakGame.Gameplay
             dropAction = map.FindAction(dropActionName, throwIfNotFound: true);
             map.Enable();
             dropAction.performed += OnDropPerformed;
+            DeadlineTrigger.GameOver += HandleGameOver;
         }
 
         private void OnDisable()
         {
             if (dropAction != null) dropAction.performed -= OnDropPerformed;
             inputActions?.FindActionMap(actionMapName)?.Disable();
+            DeadlineTrigger.GameOver -= HandleGameOver;
+        }
+
+        private void HandleGameOver()
+        {
+            isGameOver = true;
+            if (previewGO != null) previewGO.SetActive(false);
+            Time.timeScale = gameOverTimeScale;
         }
 
         private void Start()
@@ -64,6 +80,7 @@ namespace SubakGame.Gameplay
 
         private void Update()
         {
+            if (isGameOver) return;
             if (isLocked && Time.time >= unlockAt) isLocked = false;
             UpdatePreviewPosition();
         }
@@ -90,7 +107,7 @@ namespace SubakGame.Gameplay
 
         private void OnDropPerformed(InputAction.CallbackContext ctx)
         {
-            if (isLocked || currentFruit == null || previewGO == null) return;
+            if (isGameOver || isLocked || currentFruit == null || previewGO == null) return;
             if (currentFruit.prefab == null)
             {
                 Debug.LogWarning($"[Dropper] {currentFruit.displayName} 의 prefab 미설정");

@@ -12,10 +12,16 @@ namespace SubakGame.Gameplay
         public FruitData Data => data;
         public int Tier => data != null ? data.tier : 0;
         public bool IsMerged { get; private set; }
+        public float SpawnedAt { get; private set; }
 
         // 합치기 발생 시 발화: (생성된 새 단계, 월드 좌표)
         // 점수/SFX/파티클이 구독.
         public static event System.Action<int, Vector2> Merged;
+
+        private void Awake()
+        {
+            SpawnedAt = Time.time;
+        }
 
         public void Bind(FruitData fruitData)
         {
