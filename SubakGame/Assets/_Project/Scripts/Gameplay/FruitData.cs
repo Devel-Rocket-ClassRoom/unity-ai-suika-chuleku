@@ -25,6 +25,10 @@ namespace SubakGame.Gameplay
         public Color color = Color.white;
         public Sprite sprite;
 
+        [Header("프리팹")]
+        [Tooltip("드롭/머지 시 생성할 Fruit 프리팹")]
+        public GameObject prefab;
+
         [Header("진화")]
         [Tooltip("두 개가 합쳐졌을 때 생성될 다음 단계. null이면 최종(수박)")]
         public FruitData nextTier;

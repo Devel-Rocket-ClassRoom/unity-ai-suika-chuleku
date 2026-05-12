@@ -18,5 +18,6 @@ MonoBehaviour:
   radius: 0.26136005
   mass: 0.5227201
   color: {r: 0.55, g: 0.3, b: 0.75, a: 1}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 06e958cab8af5f74f9b15c495e952750, type: 3}
+  prefab: {fileID: 2422663713012570079, guid: 00cc97de047ebe942acbd9e8bbcc2ff4, type: 3}
   nextTier: {fileID: 11400000, guid: b53af0d5aefde4640b44a76ceb8d341f, type: 2}
