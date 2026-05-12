@@ -299,6 +299,7 @@ MonoBehaviour:
   dropActionName: Drop
   cooldown: 0.5
   previewAlpha: 0.7
+  gameOverTimeScale: 0.1
 --- !u!4 &2090137676
 Transform:
   m_ObjectHideFlags: 0
