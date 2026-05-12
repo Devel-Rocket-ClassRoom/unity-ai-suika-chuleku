@@ -29,11 +29,14 @@ namespace SubakGame.Gameplay
         private InputAction dropAction;
 
         private FruitData currentFruit;
+        private FruitData nextFruit;
         private GameObject previewGO;
         private SpriteRenderer previewSR;
         private float unlockAt;
         private bool isLocked;
         private bool isGameOver;
+
+        public static event System.Action<FruitData> NextFruitChanged;
 
         private void Awake()
         {
@@ -75,12 +78,14 @@ namespace SubakGame.Gameplay
 
         private void Start()
         {
+            // Initial fill
+            nextFruit = database != null ? database.GetRandomDroppable() : null;
             PickNextFruit();
         }
 
         private void Update()
         {
-            if (isGameOver) return;
+            if (isGameOver || Time.timeScale <= 0f) return;
             if (isLocked && Time.time >= unlockAt) isLocked = false;
             UpdatePreviewPosition();
         }
@@ -107,7 +112,7 @@ namespace SubakGame.Gameplay
 
         private void OnDropPerformed(InputAction.CallbackContext ctx)
         {
-            if (isGameOver || isLocked || currentFruit == null || previewGO == null) return;
+            if (isGameOver || isLocked || currentFruit == null || previewGO == null || Time.timeScale <= 0f) return;
             if (currentFruit.prefab == null)
             {
                 Debug.LogWarning($"[Dropper] {currentFruit.displayName} 의 prefab 미설정");
@@ -127,7 +132,11 @@ namespace SubakGame.Gameplay
 
         private void PickNextFruit()
         {
-            currentFruit = database != null ? database.GetRandomDroppable() : null;
+            currentFruit = nextFruit;
+            nextFruit = database != null ? database.GetRandomDroppable() : null;
+            
+            NextFruitChanged?.Invoke(nextFruit);
+
             if (currentFruit == null)
             {
                 if (previewGO != null) previewGO.SetActive(false);
@@ -154,5 +163,5 @@ namespace SubakGame.Gameplay
                 ? currentFruit.prefab.transform.localScale
                 : Vector3.one;
         }
-    }
+}
 }
