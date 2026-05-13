@@ -24,9 +24,11 @@ namespace SubakGame.Gameplay
         [SerializeField, Range(0f, 1f)] private float previewAlpha = 0.7f;
         [SerializeField, Range(0f, 1f), Tooltip("게임오버 시 적용할 시간 스케일 (0=정지)")]
         private float gameOverTimeScale = 0.1f;
+        [SerializeField] private AudioClip dropSound;
 
+        private AudioSource audioSource;
         private InputAction pointerAction;
-        private InputAction dropAction;
+private InputAction dropAction;
 
         private FruitData currentFruit;
         private FruitData nextFruit;
@@ -41,10 +43,16 @@ namespace SubakGame.Gameplay
         private void Awake()
         {
             if (viewCamera == null) viewCamera = Camera.main;
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+            }
+            audioSource.playOnAwake = false;
         }
 
         private void OnEnable()
-        {
+{
             // 게임오버 직후 종료된 이전 세션이 timeScale 을 남길 수 있으므로 리셋
             Time.timeScale = 1f;
             isGameOver = false;
@@ -124,8 +132,13 @@ namespace SubakGame.Gameplay
             var fruit = instance.GetComponent<Fruit>();
             if (fruit != null) fruit.Bind(currentFruit);
 
+            if (audioSource != null && dropSound != null)
+            {
+                audioSource.PlayOneShot(dropSound);
+            }
+
             isLocked = true;
-            unlockAt = Time.time + cooldown;
+unlockAt = Time.time + cooldown;
 
             PickNextFruit();
         }

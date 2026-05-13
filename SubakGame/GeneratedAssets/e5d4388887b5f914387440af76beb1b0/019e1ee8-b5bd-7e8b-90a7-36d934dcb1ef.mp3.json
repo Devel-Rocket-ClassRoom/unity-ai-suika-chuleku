@@ -1,0 +1,15 @@
+{
+    "asset": "e5d4388887b5f914387440af76beb1b0",
+    "fileName": "019e1ee8-b5bd-7e8b-90a7-36d934dcb1ef.mp3",
+    "prompt": "Bouncy, cheerful, and relaxing background music for a casual puzzle game. Featuring marimba, light acoustic guitar, and soft percussion. Cute and happy atmosphere. Seamlessly loopable.",
+    "negativePrompt": "",
+    "model": "google-lyria-3-clip",
+    "modelName": "Google Lyria 3 Clip",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "duration": 30.0,
+    "autoTrim": false,
+    "hasReference": false,
+    "voice": ""
+}

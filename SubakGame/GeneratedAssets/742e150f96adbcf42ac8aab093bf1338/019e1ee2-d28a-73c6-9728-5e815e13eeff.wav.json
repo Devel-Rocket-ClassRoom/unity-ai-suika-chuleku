@@ -1,0 +1,15 @@
+{
+    "asset": "742e150f96adbcf42ac8aab093bf1338",
+    "fileName": "019e1ee2-d28a-73c6-9728-5e815e13eeff.wav",
+    "prompt": "A cute cartoonish bubble pop sound, satisfying and positive, for a casual puzzle game where fruits merge. High quality, short duration.",
+    "negativePrompt": "",
+    "model": "elevenlabs-sound-effects-v2",
+    "modelName": "ElevenLabs Sound Effects V2",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "duration": 1.0,
+    "autoTrim": false,
+    "hasReference": false,
+    "voice": ""
+}

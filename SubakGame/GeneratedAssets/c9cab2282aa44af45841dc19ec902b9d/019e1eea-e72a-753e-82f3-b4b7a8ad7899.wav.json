@@ -1,0 +1,15 @@
+{
+    "asset": "c9cab2282aa44af45841dc19ec902b9d",
+    "fileName": "019e1eea-e72a-753e-82f3-b4b7a8ad7899.wav",
+    "prompt": "A short, cute, and cartoony 'whoosh' or 'drop' sound, light and airy, for a casual fruit dropping game. Satisfying and positive.",
+    "negativePrompt": "",
+    "model": "elevenlabs-sound-effects-v2",
+    "modelName": "ElevenLabs Sound Effects V2",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "duration": 1.0,
+    "autoTrim": false,
+    "hasReference": false,
+    "voice": ""
+}

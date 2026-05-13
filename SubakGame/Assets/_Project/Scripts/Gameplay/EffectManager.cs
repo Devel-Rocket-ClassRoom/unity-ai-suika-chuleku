@@ -6,6 +6,18 @@ namespace SubakGame.Gameplay
     {
         [SerializeField] private FruitDatabase database;
         [SerializeField] private GameObject mergeParticlePrefab;
+        [SerializeField] private AudioClip mergeSound;
+
+        private AudioSource audioSource;
+
+        private void Awake()
+        {
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+            }
+        }
 
         private void OnEnable()
         {
@@ -19,10 +31,15 @@ namespace SubakGame.Gameplay
 
         private void OnFruitMerged(int tier, Vector2 position)
         {
+            if (audioSource != null && mergeSound != null)
+            {
+                audioSource.PlayOneShot(mergeSound);
+            }
+
             if (mergeParticlePrefab == null) return;
 
             GameObject obj = Instantiate(mergeParticlePrefab, position, Quaternion.identity);
-            ParticleSystem ps = obj.GetComponent<ParticleSystem>();
+ParticleSystem ps = obj.GetComponent<ParticleSystem>();
             
             if (ps != null && database != null)
             {
